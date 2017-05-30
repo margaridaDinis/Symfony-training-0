@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>List of all batteries in the box</h2>
+    <table class="mdl-data-table mdl-js-data-table" width="100%">
+        <thead>
+        <tr>
+            <th class="mdl-data-table__cell--non-numeric"><h5>Name</h5></th>
+            <th class="mdl-data-table__cell--non-numeric"><h5>Battery Type</h5></th>
+            <th><h5>Count</h5></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for pack in batteryPacks %}
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric">{{ pack.name ? pack.name : 'Not Set' }}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{ pack.type }}</td>
+                <td>{{ pack.count }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+

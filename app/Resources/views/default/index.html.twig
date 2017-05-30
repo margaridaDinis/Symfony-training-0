@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="mdl-data-table mdl-js-data-table" width="100%">
+        <thead>
+        <tr>
+            <th class="mdl-data-table__cell--non-numeric"><h5>Battery Type</h5></th>
+            <th><h5>Total Count</h5></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for pack in batterySum %}
+            <tr class="batteryStatistic-{{ pack.battery_type }}">
+                <td class="mdl-data-table__cell--non-numeric">{{ pack.battery_type }}</td>
+                <td>{{ pack.battery_count }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p>Click here to <a href="{{ path('new') }}">add</a> new batteries to the box</p>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">New BatteryPack</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+            <p>
+                <b>Name</b><br>
+                {{ batteryPack.name ? batteryPack.name : 'Not Set' }}
+            </p>
+            <p>
+                <b>Type</b><br>
+                {{ batteryPack.type }}
+            </p>
+            <p>
+                <b>Count</b><br>
+                {{ batteryPack.count }}
+            </p>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <a href="{{ path('new') }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Create new
+            </a>
+        </div>
+    </div>
+{% endblock %}

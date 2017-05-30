@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2>Battery form</h2>
+
+    {{ form_start(form) }}
+    <div class="mdl-cell mdl-cell--3-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        {{ form_widget(form.name, { 'attr': {'class': "mdl-textfield__input" } }) }}
+        {{ form_label(form.name, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
+        <small class="mdl-textfield__error">{{ form_errors(form.name)|striptags }}</small>
+    </div>
+    <div class="mdl-cell mdl-cell--3-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        {{ form_widget(form.type, { 'attr': {'class': "mdl-textfield__input" } }) }}
+        {{ form_label(form.type, 'Battery Type', { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
+        <small class="mdl-textfield__error">{{ form_errors(form.type)|striptags }}</small>
+    </div>
+    <div class="mdl-cell mdl-cell--3-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        {{ form_widget(form.count, { 'attr': {'class': "mdl-textfield__input" } }) }}
+        {{ form_label(form.count, null, { 'label_attr': {'class': 'mdl-textfield__label'} }) }}
+        <small class="mdl-textfield__error">{{ form_errors(form.count)|striptags }}</small>
+    </div>
+
+    <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        Create
+    </button>
+    {{ form_end(form) }}
+{% endblock %}
