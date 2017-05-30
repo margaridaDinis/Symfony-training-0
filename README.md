@@ -21,10 +21,10 @@ There must be a table on this page with two columns: _Battery type_ and _Total c
 
 Test cases:
 
-* Submit Battery form with **4 AA batteries**
-* Submit Battery form with **3 AAA batteries**
-* Submit Battery form with **1 AA battery**
-* Open statistics page and check that **there are 2 rows in the table, with counts: AA – 5, AAA – 3**.
+* Submit Battery form with **4 AA batteries** (1)
+* Submit Battery form with **3 AAA batteries** (2)
+* Submit Battery form with **1 AA battery** (3)
+* Open statistics page and check that **there are 2 rows in the table, with counts: AA – 5, AAA – 3** (4-8)
 
 
 
@@ -34,7 +34,7 @@ Test cases:
 
 # php bin/console doctrine:database:create
 
-# php bin/console doctrine:migrations:migrate - -no-interaction
+# php bin/console doctrine:schema:update --force
 
 # php bin/console server:run
 ```
@@ -42,5 +42,5 @@ Test cases:
 ## Tests
 
 ``` bash
-vendor/bin/phpunit
+ vendor/bin/simple-phpunit
 ```

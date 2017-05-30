@@ -13,6 +13,8 @@ class DefaultControllerTest extends WebTestCase
         shell_exec('php bin/console doctrine:schema:update --force;');
 
         $client = static::createClient();
+        $crawler = $client->request('Get', '/batterypack/new');
+
         $showAction = 'AppBundle\Controller\DefaultController::showAction';
 
         $cases = array(
@@ -32,8 +34,9 @@ class DefaultControllerTest extends WebTestCase
                 'form[count]' => '1'
             )
         );
+
+        //Case 1 to 3
         for ($case = 0; $case < 3; $case++) {
-            $crawler = $client->request('Get', '/batterypack/new');
             $form = $crawler->selectButton('Create')->form($cases[$case]);
             $client->submit($form);
             $client->followRedirect();
@@ -43,18 +46,19 @@ class DefaultControllerTest extends WebTestCase
     public function testIndex()
     {
         $client = static::createClient();
-
         $crawler = $client->request('GET', '/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $rows= $crawler->filter("tbody tr");
 
+        //Case 4
+        $rows= $crawler->filter("tbody tr");
         $count = count($rows);
         $this->assertEquals(2, $count);
 
+        //Case 5 - 6
         $AA= $crawler->filter(".batteryStatistic-AA");
         $this->assertContains('AA', $AA->text());
         $this->assertContains('5', $AA->text());
 
+        //Case 7 - 8
         $AAA = $crawler->filter(".batteryStatistic-AAA");
         $this->assertContains('AAA', $AAA->text());
         $this->assertContains('3', $AAA->text());
