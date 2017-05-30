@@ -44,3 +44,10 @@ Test cases:
 ``` bash
  vendor/bin/simple-phpunit
 ```
+
+### Resources
+
+* [Symfony Documentation - Forms](http://symfony.com/doc/current/forms.html)
+* [Symfony2 Jobeet: Testing your forms](http://www.ens.ro/2012/06/22/symfony2-jobeet-day-11-testing-your-forms/)
+* [PHPUnit Documentation ](https://phpunit.de/manual/current/en/index.html)
+* and my lovely husband to wrap it up
