@@ -8,6 +8,7 @@ class DefaultControllerTest extends WebTestCase
 {
     public function testNew()
     {
+    //todo: it's not a part of the test. You can move it into setUp() method or into bootstrap file
         shell_exec('php bin/console doctrine:database:drop --force;');
         shell_exec('php bin/console doctrine:database:create;');
         shell_exec('php bin/console doctrine:schema:update --force;');
@@ -17,6 +18,7 @@ class DefaultControllerTest extends WebTestCase
 
         $showAction = 'AppBundle\Controller\DefaultController::showAction';
 
+//todo: this is a configuration of test case, it should be in DataProvider, together with expected counts (Search "phpunit dataProvider")
         $cases = array(
             array(
                 'form[name]' => '',
@@ -36,6 +38,7 @@ class DefaultControllerTest extends WebTestCase
         );
 
         //Case 1 to 3
+        //todo: "foreach" loop would work much better here
         for ($case = 0; $case < 3; $case++) {
             $form = $crawler->selectButton('Create')->form($cases[$case]);
             $client->submit($form);
@@ -45,6 +48,7 @@ class DefaultControllerTest extends WebTestCase
     }
     public function testIndex()
     {
+    //todo: this test should be a part of previous one: after you submitted form 3 times - you have to check statistics
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
 
