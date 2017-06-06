@@ -8,6 +8,7 @@ class DefaultControllerTest extends WebTestCase
 {
     public function testNew()
     {
+    //todo: please, move these lines to _setUp() method
         shell_exec('php bin/console doctrine:database:drop --force;');
         shell_exec('php bin/console doctrine:database:create;');
         shell_exec('php bin/console doctrine:schema:update --force;');
@@ -17,6 +18,7 @@ class DefaultControllerTest extends WebTestCase
 
         $showAction = 'AppBundle\Controller\DefaultController::showAction';
 
+//todo: move this configuration to DataProvider
         $cases = array(
             array(
                 'form[name]' => '',
@@ -45,6 +47,7 @@ class DefaultControllerTest extends WebTestCase
     }
     public function testIndex()
     {
+    //todo: combine this test with previous one. So, it should be one test in total - first it adds batteries and then checks statictics
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
 
