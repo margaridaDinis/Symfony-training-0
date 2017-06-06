@@ -19,6 +19,7 @@ class DefaultController extends Controller
         $repository = $this->getDoctrine()->getRepository('AppBundle:BatteryPack');
         $batteryPacks = $repository->findAll();
 
+//todo: this should go to Repository class
         $groupBatteryPacks = $repository->createQueryBuilder('b')
             ->select("b.type as battery_type, sum(b.count) as battery_count")
             ->groupBy('b.type')
@@ -51,6 +52,7 @@ class DefaultController extends Controller
         // create a task and give it some dummy data for this example
         $batteryPack = new BatteryPack();
 
+//todo: this should go to Form class
         $form = $this->createFormBuilder($batteryPack)
             ->add('name', TextType::class, array(
                 'required' => false,
